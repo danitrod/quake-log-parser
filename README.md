@@ -6,10 +6,10 @@ This is a CLI utility tool to parse Quake game log files and generate reports of
 
 First, make sure you have [Rust](https://www.rust-lang.org/tools/install) installed and setup in
 your environment. Then simply clone this repository, and run the application, feeding it a Quake
-log file by stdin, with the following command:
+log file by stdin. Example:
 
 ```sh
-cargo run -- < qgames.log # TODO: verify this command
+cargo run -- < tests/qgames.log
 ```
 
 You should get a JSON report of kills in the game printed to stdout.
@@ -33,3 +33,11 @@ to safely serialize the output into JSON format.
 
 The [assert-cmd](https://crates.io/crates/assert_cmd) crate was used as a development dependency,
 for CLI end to end tests.
+
+## tests
+
+You can run the application's unit and end to end tests with the following command:
+
+```sh
+cargo test
+```
