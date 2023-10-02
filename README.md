@@ -1,18 +1,18 @@
 # Quake Log Parser
 
-This is a CLI utility tool to parse Quake game log files and generate reports of kills in the games.
+This is a CLI tool to parse and summarize Quake games from a log file.
 
 ## Usage
 
 First, make sure you have [Rust](https://www.rust-lang.org/tools/install) installed and setup in
 your environment. Then simply clone this repository, and run the application, feeding it a Quake
-log file by stdin. Example:
+log file from stdin. Example:
 
 ```sh
 cargo run -- < tests/qgames.log
 ```
 
-You should get a JSON report of kills in the game printed to stdout.
+You should get a JSON report of kills in the games printed to stdout.
 
 ## Approach
 
@@ -20,7 +20,7 @@ The project focuses on reading the following events from the logs:
 
 - `InitGame`: This event is read to start a new game.
 - `ClientUserinfoChanged`: This event is read to identify a new connecting player name and add it
-  to the game.
+  to the game summary.
 - `Kill`: This event is read to process a game kill.
 
 Every other event is ignored by the parser for simplicity.
@@ -34,7 +34,7 @@ to safely serialize the output into JSON format.
 The [assert-cmd](https://crates.io/crates/assert_cmd) crate was used as a development dependency,
 for CLI end to end tests.
 
-## tests
+## Tests
 
 You can run the application's unit and end to end tests with the following command:
 
