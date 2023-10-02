@@ -41,3 +41,7 @@ You can run the application's unit and end to end tests with the following comma
 ```sh
 cargo test
 ```
+
+## License
+
+[MIT](./LICENSE.md)
